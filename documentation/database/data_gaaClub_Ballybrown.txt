@@ -1,0 +1,103 @@
+-- Database: `gaaclub_ballybrown`
+-- CREATED : 2024-04-17
+-- AUTHOR : K00288477 Gary O'Connor
+
+-- run this script after you have created the database and ran the backend 'gaaManagementSystem'
+
+-- INSERTS
+
+-- ABOUT PAGE
+
+INSERT INTO `about_page` (`id`, `heading`, `paragraph1`, `paragraph2`) VALUES
+(1, 'BallyBrown GAA', 'Bally Brown GAA, nestled in the heart of [location], stands as a beacon of community spirit and athletic excellence. Founded [year], our club has been a cornerstone of sporting tradition, fostering a deep-rooted sense of camaraderie and pride among members.', 'At Bally Brown GAA, we are more than just a sports club; we are a thriving community hub dedicated to promoting the values of teamwork, respect, and inclusivity. From our grassroots initiatives nurturing young talent to our senior teams competing at the highest levels, we strive to foster an environment where every member can develop their skills, forge lifelong friendships, and contribute positively to our community. Together, we celebrate victories both on and off the field, embodying the true spirit of camaraderie and sportsmanship.');
+
+UPDATE `about_page_seq` SET `next_val` = 2;
+
+-- ----------------------------------------------------------------------
+
+-- CONTACT LIST	
+
+INSERT INTO `contact_list` (`id`, `contact_number`, `email`, `name`) VALUES
+(1, 860987766, 'J.lally@yahoo.co.uk', 'Joe Lally'),
+(2, 876543210, 'm.kelly@gmail.com', 'Mary Kelly'),
+(3, 800123456, 'p.obrien@hotmail.com', 'Patrick O Brien'),
+(4, 870987654, 's.smith@outlook.com', 'Sarah Smith'),
+(5, 830246813, 'd.jones@yahoo.co.uk', 'David Jones');
+
+update `contact_list_seq` set `next_val` = 6;
+
+-- ----------------------------------------------------------------------
+
+-- CLUB
+
+INSERT INTO `club` (`club_id`, `address1`, `address2`, `address3`, `date_est`, `name`) VALUES
+(1, 'Clarina', 'Limerick', 'Co.Limerick', '1980-04-02', 'BallyBrown GAA'),
+(2, 'Clarina', 'Limerick', 'Co.Limerick', '1980-04-02', 'BallyBrown Camogie');
+
+update `club_seq` set `next_val` = 3;
+-- ----------------------------------------------------------------------
+
+-- EVENT
+
+INSERT INTO `event` (`event_id`, `date`, `location`, `name`, `ticket_price`, `time`, `type`) VALUES
+(1, '2024-04-26', 'BallyBrown GAA (Old Field)', 'BallyBrown V Kildimo', 5.00, '19:30:00.000000', 'Senior hurling'),
+(2, '2024-04-04', 'test', 'test', 5.00, '21:30:00.000000', 'test'),
+(3, '2024-05-12', 'Ballyneety GAA', 'Ballyneety U14 Boys vs. Adare U14 Boys', 3.00, '15:00:00.000000', 'U14 hurling'),
+(4, '2024-05-05', 'Adare LGFA Pitch', 'Adare Ladies Football Final', 7.00, '16:00:00.000000', 'Ladies Football'),
+(5, '2024-04-30', 'Kildimo GAA Grounds', 'Kildimo Camogie Challenge', 4.00, '18:00:00.000000', 'Camogie');
+
+update `event_seq` set `next_val` = 6;
+
+-- ----------------------------------------------------------------------
+
+INSERT INTO `membership` (`membership_id`, `membership_type`) VALUES
+(1, 'FREE'),
+(2, 'STANDARD'),
+(3, 'LIFETIME');
+
+UPDATE `membership_seq` SET `next_val` = 4;
+
+-- ----------------------------------------------------------------------
+-- MEMBER
+
+INSERT INTO `member` (`member_id`, `address1`, `address2`, `address3`, `contact_no`, `dob`, `email`, `first_name`, `last_name`, `membership_type`, `password`) VALUES
+(1, '123 Main Street', 'Limerick City', 'Co. Limerick', 876478553, '1990-03-15', 'john.doe@example.com', 'John', 'Doe', 'FREE', 'password1'),
+(2, '456 Elm Street', 'Limerick City', 'Co. Limerick', 800123456, '1995-07-20', 'jane.smith@example.com', 'Jane', 'Smith', 'FREE', 'hellohellow1'),
+(3, '789 Oak Street', 'Limerick City', 'Co. Limerick', 870987654, '1988-11-10', 'michael.brown@example.com', 'Michael', 'Brown', 'FREE', 'welcome1'),
+(4, '987 Pine Street', 'Limerick City', 'Co. Limerick', 830987654, '1992-09-18', 'sarah.green@example.com', 'Sarah', 'Green', 'FREE', 'password1'),
+(5, '654 Cedar Street', 'Limerick City', 'Co. Limerick', 860123456, '1987-05-07', 'mark.jackson@example.com', 'Mark', 'Jackson', 'LIFETIME', 'membermember6'),
+(6, '321 Maple Street', 'Limerick City', 'Co. Limerick', 870654321, '1998-12-30', 'laura.white@example.com', 'Laura', 'White', 'FREE', 'password9'),
+(7, '111 Oak Street', 'Limerick City', 'Co. Limerick', 890234567, '1996-03-25', 'chris.evans@example.com', 'Chris', 'Evans', 'FREE', 'helloworld9'),
+(8, '222 Elm Street', 'Limerick City', 'Co. Limerick', 840345678, '1985-11-14', 'jessica.parker@example.com', 'Jessica', 'Parker', 'FREE', 'welcomety6'),
+(9, '333 Walnut Street', 'Limerick City', 'Co. Limerick', 880456789, '1980-08-03', 'daniel.taylor@example.com', 'Daniel', 'Taylor', 'FREE', 'passeord6');
+
+update `member_seq` set `next_val` = 10;
+
+-- ----------------------------------------------------------------------
+
+INSERT INTO `staff` (`staff_id`, `address1`, `address2`, `address3`, `contact_no`, `dob`, `email`, `first_name`, `last_name`, `password`, `role`) VALUES
+(1, '1a Clonile', 'Old Cratloe Road', 'Limerick', 876478553, '1985-02-10', 'gary@tus.ie', 'Gary', 'O\'Connor', 'adminadmin1', 'MANAGER'),
+(2, '23 River Road', 'Limerick City', 'Co. Limerick', 830246813, '1990-08-25', 'emma.jones@example.com', 'Emma', 'Jones', 'password3', 'COACH'),
+(3, '15 Park Avenue', 'Limerick City', 'Co. Limerick', 860987654, '1978-06-05', 'peter.wilson@example.com', 'Peter', 'Wilson', 'abcdabcd123', 'TRAINER'),
+(4, '456 Oak Lane', 'Limerick City', 'Co. Limerick', 890123456, '1982-04-12', 'amy.wilson@example.com', 'Amy', 'Wilson', 'password9', 'MANAGER'),
+(5, '789 Walnut Drive', 'Limerick City', 'Co. Limerick', 850678901, '1993-10-28', 'david.thomas@example.com', 'David', 'Thomas', 'password5', 'COACH'),
+(6, '987 Cedar Avenue', 'Limerick City', 'Co. Limerick', 880123456, '1989-07-15', 'susan.johnson@example.com', 'Susan', 'Johnson', 'abcdabcd1', 'TRAINER');
+
+update `staff_seq` set `next_val` = 7;
+
+-- ----------------------------------------------------------------------
+
+-- TEAM
+
+INSERT INTO `team` (`team_id`, `level`, `name`, `type`, `club_club_id`) VALUES
+(1, 'SENIOR', 'BallyBrown', 'HURLING', 1),
+(2, 'SENIOR', 'BallyBrown GAA Senior Hurling', 'HURLING', NULL),
+(3, 'INTERMEDIATE', 'Ladies Camogie', 'CAMOGIE', NULL);
+
+update `team_seq` set `next_val` = 4;
+
+-- ----------------------------------------------------------------------
+
+
+
+

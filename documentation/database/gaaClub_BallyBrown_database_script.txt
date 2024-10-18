@@ -1,0 +1,398 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 17, 2024 at 07:11 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `gaaclub_ballybrown`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_page`
+--
+
+CREATE TABLE `about_page` (
+  `id` bigint(20) NOT NULL,
+  `heading` varchar(255) DEFAULT NULL,
+  `paragraph1` varchar(255) DEFAULT NULL,
+  `paragraph2` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_page_seq`
+--
+
+CREATE TABLE `about_page_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about_page_seq`
+--
+
+INSERT INTO `about_page_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `club`
+--
+
+CREATE TABLE `club` (
+  `club_id` bigint(20) NOT NULL,
+  `address1` varchar(255) DEFAULT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `address3` varchar(255) DEFAULT NULL,
+  `date_est` date DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `club_seq`
+--
+
+CREATE TABLE `club_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `club_seq`
+--
+
+INSERT INTO `club_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_list`
+--
+
+CREATE TABLE `contact_list` (
+  `id` bigint(20) NOT NULL,
+  `contact_number` int(11) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_list_seq`
+--
+
+CREATE TABLE `contact_list_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_list_seq`
+--
+
+INSERT INTO `contact_list_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event`
+--
+
+CREATE TABLE `event` (
+  `event_id` bigint(20) NOT NULL,
+  `date` date DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `ticket_price` decimal(38,2) DEFAULT NULL,
+  `time` time(6) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_seq`
+--
+
+CREATE TABLE `event_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `event_seq`
+--
+
+INSERT INTO `event_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `member_id` bigint(20) NOT NULL,
+  `address1` varchar(255) DEFAULT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `address3` varchar(255) DEFAULT NULL,
+  `contact_no` int(11) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `membership_type` enum('FREE','STANDARD','LIFETIME') DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `membership`
+--
+
+CREATE TABLE `membership` (
+  `membership_id` bigint(20) NOT NULL,
+  `membership_type` enum('FREE','STANDARD','LIFETIME') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `membership_seq`
+--
+
+CREATE TABLE `membership_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `membership_seq`
+--
+
+INSERT INTO `membership_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_seq`
+--
+
+CREATE TABLE `member_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `member_seq`
+--
+
+INSERT INTO `member_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `player`
+--
+
+CREATE TABLE `player` (
+  `player_id` bigint(20) NOT NULL,
+  `address1` varchar(255) DEFAULT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `address3` varchar(255) DEFAULT NULL,
+  `contact_no` int(11) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `registered` enum('YES','NO') DEFAULT NULL,
+  `team_team_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `player_seq`
+--
+
+CREATE TABLE `player_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `player_seq`
+--
+
+INSERT INTO `player_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+
+CREATE TABLE `staff` (
+  `staff_id` bigint(20) NOT NULL,
+  `address1` varchar(255) DEFAULT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `address3` varchar(255) DEFAULT NULL,
+  `contact_no` int(11) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff_seq`
+--
+
+CREATE TABLE `staff_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `staff_seq`
+--
+
+INSERT INTO `staff_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team`
+--
+
+CREATE TABLE `team` (
+  `team_id` bigint(20) NOT NULL,
+  `level` enum('SENIOR','INTERMEDIATE','JUNIOR','MINOR','U16','U14','U12','U10','U8') DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `type` enum('HURLING','CAMOGIE','MENS_FOOTBALL','LADIES_FOOTBALL','MENS_HANDBALL','LADIES_HANDBALL') DEFAULT NULL,
+  `club_club_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team_seq`
+--
+
+CREATE TABLE `team_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `team_seq`
+--
+
+INSERT INTO `team_seq` (`next_val`) VALUES
+(1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `about_page`
+--
+ALTER TABLE `about_page`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `club`
+--
+ALTER TABLE `club`
+  ADD PRIMARY KEY (`club_id`);
+
+--
+-- Indexes for table `contact_list`
+--
+ALTER TABLE `contact_list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`event_id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`member_id`);
+
+--
+-- Indexes for table `membership`
+--
+ALTER TABLE `membership`
+  ADD PRIMARY KEY (`membership_id`);
+
+--
+-- Indexes for table `player`
+--
+ALTER TABLE `player`
+  ADD PRIMARY KEY (`player_id`),
+  ADD KEY `FKkswv8pkevhfnyhkxgwxdfbkvc` (`team_team_id`);
+
+--
+-- Indexes for table `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`staff_id`);
+
+--
+-- Indexes for table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`team_id`),
+  ADD KEY `FKhbnlivcfjr7ae81j0jyf4eocl` (`club_club_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `player`
+--
+ALTER TABLE `player`
+  ADD CONSTRAINT `FKkswv8pkevhfnyhkxgwxdfbkvc` FOREIGN KEY (`team_team_id`) REFERENCES `team` (`team_id`);
+
+--
+-- Constraints for table `team`
+--
+ALTER TABLE `team`
+  ADD CONSTRAINT `FKhbnlivcfjr7ae81j0jyf4eocl` FOREIGN KEY (`club_club_id`) REFERENCES `club` (`club_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
