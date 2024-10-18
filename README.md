@@ -10,12 +10,12 @@ ______________________________________________________
 SET UP INSTRUCTIONS
 
 - create database 'gaaClub_Ballybrown'
-- run the backend application
+- run the backend application (Springboot will use JPA to create the database tables)
 - run insert statements located in 'documentation/database/data_gaaClub_Ballybrown.txt'
 ______________________________________________________
 
 Project Description:
-    The objective of this project is to develop a RESP API for managing member details for a local
+    The objective of this project is to develop a REST API for managing member details for a local
     GAA club. The application will consist of an admin portal, a user portal, and a landing page.
     The admin portal will allow administrators to view, update, and delete member details, while
     the user portal will allow users to register, login, and view events and match details.
